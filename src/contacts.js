@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const contactsPath = path.join(__dirname, "./db/contacts.json");
+const contactsPath = path.join(__dirname, "../db/contacts.json");
 
 function listContacts() {
   fs.readFile(contactsPath, "utf-8", (err, data) => {
@@ -33,8 +33,8 @@ function removeContact(contactId) {
 function addContact(name, email, phone) {
   fs.readFile(contactsPath, function (err, data) {
     let json = JSON.parse(data);
-    let lastId = json.length - 1 + 1;
-    json.push({ id: lastId + 1, name, email, phone });
+    let lastId = json.length + 1;
+    json.push({ id: lastId, name, email, phone });
 
     fs.writeFile(contactsPath, JSON.stringify(json), function (err) {
       if (err) throw err;

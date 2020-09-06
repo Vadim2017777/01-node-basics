@@ -1,4 +1,4 @@
-var contactFunction = require("./contacts.js");
+var contactFunction = require("./src/contacts.js");
 const argv = require("yargs").argv;
 
 function invokeAction({ action, id, name, email, phone }) {
